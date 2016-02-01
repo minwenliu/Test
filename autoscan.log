@@ -1,0 +1,11 @@
+autoscan: warning: missing AC_CHECK_FUNCS([memset]) wanted by: 
+	Net.h:5
+autoscan: warning: missing AC_CHECK_HEADERS([netinet/in.h]) wanted by: 
+	lib/udp_client.h:6
+autoscan: warning: missing AC_CHECK_HEADERS([sys/socket.h]) wanted by: 
+	lib/udp_client.h:5
+autoscan: warning: missing AC_C_INLINE wanted by: 
+	lib/udp_client.h:28
+autoscan: warning: missing AC_TYPE_INT32_T wanted by: 
+	hello.c:31
+	hello.c:38
