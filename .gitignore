@@ -1,0 +1,16 @@
+*.cdepn
+*.o
+*.bak
+hello
+hello.out.*
+hello.out
+.*
+autom4te.cache/
+compile
+depcomp
+missing
+install-sh
+my.prof
+my.vim
+my.viminf
+*.swp
