@@ -97,9 +97,9 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(includedir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_hello_OBJECTS = hello-hello.$(OBJEXT) hello-tree.$(OBJEXT) \
 	hello-td.$(OBJEXT) hello-log.$(OBJEXT) hello-tconn.$(OBJEXT) \
-	hello-task.$(OBJEXT)
+	hello-task.$(OBJEXT) hello-test.$(OBJEXT)
 hello_OBJECTS = $(am_hello_OBJECTS)
-hello_LDADD = $(LDADD)
+hello_DEPENDENCIES = lib/libudp_client.a
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -299,12 +299,11 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 AUTOMAKE_OPTIONS = foreign
-hello_SOURCES = hello.cpp tree.cpp td/td.cpp log.cpp tconn.cpp task.cpp 
+hello_SOURCES = hello.cpp tree.cpp td/td.cpp log.cpp tconn.cpp task.cpp test.cpp
 INCLUDES = -I./snslib -I/usr/local/include
 hello_CPPFLAGS = -g -Wall -Wextra -O3 -pipe -fno-omit-frame-pointer
 #noinst_HEADERS=hello.h
-
-#hello_LDADD=lib/libudp_client.a snslib/libsns.a -lprofiler -lunwind
+hello_LDADD = -lprofiler -lunwind lib/libudp_client.a
 include_HEADERS = hello.h test.h tree.h Net.h td/td.h SingletonHolder.h log.h task.h tconn.h student.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -418,6 +417,7 @@ include ./$(DEPDIR)/hello-log.Po
 include ./$(DEPDIR)/hello-task.Po
 include ./$(DEPDIR)/hello-tconn.Po
 include ./$(DEPDIR)/hello-td.Po
+include ./$(DEPDIR)/hello-test.Po
 include ./$(DEPDIR)/hello-tree.Po
 
 .cpp.o:
@@ -517,6 +517,20 @@ hello-task.obj: task.cpp
 #	$(AM_V_CXX)source='task.cpp' object='hello-task.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(hello_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o hello-task.obj `if test -f 'task.cpp'; then $(CYGPATH_W) 'task.cpp'; else $(CYGPATH_W) '$(srcdir)/task.cpp'; fi`
+
+hello-test.o: test.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(hello_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT hello-test.o -MD -MP -MF $(DEPDIR)/hello-test.Tpo -c -o hello-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/hello-test.Tpo $(DEPDIR)/hello-test.Po
+#	$(AM_V_CXX)source='test.cpp' object='hello-test.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(hello_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o hello-test.o `test -f 'test.cpp' || echo '$(srcdir)/'`test.cpp
+
+hello-test.obj: test.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(hello_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT hello-test.obj -MD -MP -MF $(DEPDIR)/hello-test.Tpo -c -o hello-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/hello-test.Tpo $(DEPDIR)/hello-test.Po
+#	$(AM_V_CXX)source='test.cpp' object='hello-test.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(hello_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o hello-test.obj `if test -f 'test.cpp'; then $(CYGPATH_W) 'test.cpp'; else $(CYGPATH_W) '$(srcdir)/test.cpp'; fi`
 install-includeHEADERS: $(include_HEADERS)
 	@$(NORMAL_INSTALL)
 	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \

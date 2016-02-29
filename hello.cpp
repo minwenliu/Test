@@ -11,5 +11,7 @@ int main(int argc, char** argv){
     SingletonHolder<Log>::Instance()->Set_Loglevel(LOG_INFO);
     SingletonHolder<tconn>::Instance()->run();
 
+//    test();
+
     return 0;
 }

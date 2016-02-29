@@ -54,7 +54,7 @@ bool tconn::StartListen()
         return(false); 
     }
     int reuse=1;
-    if(setsockopt(sockfd,SOL_TCP,SO_REUSEADDR,&reuse,sizeof(reuse))==-1)
+    if(setsockopt(sockfd,SOL_SOCKET,SO_REUSEADDR,&reuse,sizeof(reuse))==-1)
     {
         ERROR("set socket so_reuseaddr fail|%d|%s",errno,strerror(errno));
         return false;

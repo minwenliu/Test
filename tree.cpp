@@ -1,3 +1,14 @@
+/*=============================================================================
+#     FileName: tree.cpp
+#         Desc:  
+#       Author: minwenliu
+#        Email: minwenliu@tencent.com
+#     HomePage: https://github.com/minwenliu
+#       Editor:  ts=4,sw=4,et
+#      Version: 0.0.1
+#   LastChange: 2016-02-25 14:58:20
+#      History:
+=============================================================================*/
 #include "tree.h"
 #include <iostream>
 using namespace std;

@@ -1,3 +1,15 @@
+/*=============================================================================
+#     FileName: tree.h
+#         Desc:  树结构，以及stack的定义
+#       Author: minwenliu
+#        Email: minwenliu@tencent.com
+#     HomePage: http://www.vimer.cn
+#      Version: 0.0.1
+#   LastChange: 2016-02-16 10:57:12
+#      History:
+=============================================================================*/
+#ifndef _TREE_H_
+#define _TREE_H_
 #include <stddef.h>
 #include <memory.h> 
 struct node{
@@ -41,3 +53,4 @@ struct tree{
     static void MidTraversal(node* rt);
 
 };
+#endif

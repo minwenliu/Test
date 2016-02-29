@@ -10,10 +10,12 @@
 =============================================================================*/
 #ifndef TCONN_INC
 #define TCONN_INC
-#define SERVER_PORT 6666
-#define EPOLL_MAX_FD_NUM 10000
-#define EPOLL_LISTEN_POS 0
-#define EPOLL_MAX_EVENTS 1024
+
+#define   SERVER_PORT        6666
+#define   EPOLL_MAX_FD_NUM   10000
+#define   EPOLL_LISTEN_POS   0
+#define   EPOLL_MAX_EVENTS   1024
+
 #include "hash_map.h" 
 #include "boost/shared_ptr.hpp" 
 #include "task.h"

@@ -5,9 +5,11 @@
 #        Email: minwenliu@tencent.com
 #     HomePage: http://www.vimer.cn
 #      Version: 0.0.1
-#   LastChange: 2016-01-19 17:21:46
+#   LastChange: 2016-02-19 12:58:02
 #      History:
 =============================================================================*/
+#ifndef _STUDENT_H_
+#define _STUDENT_H_
 class student 
 { 
     const static int MAX_NAME_LEN=10;
@@ -27,3 +29,4 @@ class student
         char name[MAX_NAME_LEN];
         int score;
 }; 
+#endif
